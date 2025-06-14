@@ -42,4 +42,9 @@ microphone:
   id: adc_mic
   adc_type: external
   pdm: false
-  
+
+voice_assistant:
+  microphone: adc_mic
+  id: va
+
+captive_portal:
