@@ -24,8 +24,9 @@ jobs:
       - name: Compile ESPHome firmware
         run: esphome compile config/esphome-web-1eeb60.yaml
 
-      - name: Upload firmware artifact
+      - name: Upload compiled firmware
         uses: actions/upload-artifact@v4
         with:
           name: firmware
-          path: .esphome/build/esphome-web-1eeb60/*.bin
+          path: config/.esphome/build/esphome-web-1eeb60/.pioenvs/esphome-web-1eeb60/firmware.factory.bin
+
