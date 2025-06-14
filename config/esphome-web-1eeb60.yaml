@@ -1,5 +1,7 @@
 esphome:
   name: esphome-web-1eeb60
+  includes:
+    - microphone_logger.h
   platformio_options:
     build_unflags:
       - '-D USE_AUDIO_NOISE_SUPPRESSION'
