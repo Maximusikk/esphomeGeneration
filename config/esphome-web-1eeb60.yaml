@@ -35,18 +35,19 @@ wifi:
     password: "dogDJ0eNBG6O"
 
 i2s_audio:
-  i2s_lrclk_pin: GPIO26 #ws
-  i2s_bclk_pin: GPIO18 #clk
+  i2s_lrclk_pin: GPIO26
+  i2s_bclk_pin: GPIO18
 
 microphone:
-- platform: i2s_audio
-  i2s_din_pin: GPIO33 #sd
-  id: adc_mic
-  adc_type: external
-  pdm: false
+  - platform: i2s_audio
+    i2s_din_pin: GPIO33
+    id: adc_mic
+    adc_type: external
+    pdm: false
 
-voice_assistant:
-  microphone: adc_mic
-  id: va
+custom_component:
+  - lambda: |-
+      auto logger = new MicrophoneLogger(id(adc_mic));
+      App.register_component(logger);
 
 captive_portal:
